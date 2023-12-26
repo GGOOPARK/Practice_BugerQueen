@@ -16,50 +16,53 @@ public class Menu {
         System.out.println("메뉴");
         System.out.println("*".repeat(30));
 
-        printHamburgers();
-        printSides();
-        printDrinks();
+        printHamburgers(true);
+        printSides(true);
+        printDrinks(true);
 
         System.out.println("(0) : 장바구니");
         System.out.println("(+) : 주문하기");
         System.out.println("메뉴를 선택해주세요 :-)");
     }
 
-    private void printDrinks() {
+    protected void printDrinks(boolean printPrice) {
         System.out.println("음료");
         for (Product product : products) {
             if (product instanceof Drink) {
-                printEachMenu(product);
+                printEachMenu(product, printPrice);
             }
         }
         System.out.println("-".repeat(45));
     }
 
-    private void printSides() {
+    protected void printSides(boolean printPrice) {
         System.out.println("사이드 메뉴");
         for (Product product : products) {
             if (product instanceof Side) {
-                printEachMenu(product);
+                printEachMenu(product, printPrice);
             }
         }
         System.out.println("-".repeat(45));
     }
 
-    private void printHamburgers() {
+    protected void printHamburgers(boolean printPrice) {
         System.out.println("햄버거 메뉴");
         for (Product product : products) {
             if (product instanceof Hamburger) {
-                printEachMenu(product);
+                printEachMenu(product, printPrice);
             }
         }
         System.out.println("-".repeat(45));
     }
 
-    private static void printEachMenu(Product product) {
-        System.out.printf(
+    private static void printEachMenu(Product product, boolean printPrice) {
+        if (printPrice) System.out.printf(
                 " (%d) %s %5dkcal %5d원\n" ,
                 product.getId(), product.getName(), product.getKcal(), product.getPrice()
         );
+        else System.out.printf(
+                " (%d0 %s %dKcal\n",
+                product.getId(), product.getName(), product.getKcal());
     }
 
 }

@@ -12,8 +12,11 @@ public class Hamburger extends Product {
         this.burgerSetPrice = burgerSetPrice;
     }
 
-    public boolean isBurgurSet() {
+    public boolean isBurgerSet() {
         return isBurgerSet;
+    }
+    public void setIsBurgerSet(boolean isBurgerSet) {
+        this.isBurgerSet = isBurgerSet;
     }
     public int getBurgerSetPrice() {
         return burgerSetPrice;
