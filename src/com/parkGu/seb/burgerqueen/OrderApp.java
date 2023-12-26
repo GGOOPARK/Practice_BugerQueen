@@ -3,6 +3,8 @@ package com.parkGu.seb.burgerqueen;
 import com.parkGu.seb.burgerqueen.product.product.Product;
 import com.parkGu.seb.burgerqueen.product.product.ProductRepository;
 
+import java.util.Scanner;
+
 public class OrderApp {
     public void start() {
         ProductRepository productRepository = new ProductRepository();
@@ -13,6 +15,8 @@ public class OrderApp {
 
         while (true) {
             menu.printMenu();
+            String input = Scanner.nextLine();
+            if ()
 
         }
     }
