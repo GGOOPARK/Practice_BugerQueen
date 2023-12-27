@@ -20,7 +20,7 @@ public class OrderApp {
             menu.printMenu();
             String input = scanner.nextLine();
             if (input.equals("+")) {
-            //    주문 내역 출력;
+                cart.printCart();
                 break;
             } else {
                 int menuNumber = Integer.parseInt(input);

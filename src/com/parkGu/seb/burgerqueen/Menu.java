@@ -61,7 +61,7 @@ public class Menu {
                 product.getId(), product.getName(), product.getKcal(), product.getPrice()
         );
         else System.out.printf(
-                " (%d0 %s %dKcal\n",
+                " (%d) %s %dKcal\n",
                 product.getId(), product.getName(), product.getKcal());
     }
 

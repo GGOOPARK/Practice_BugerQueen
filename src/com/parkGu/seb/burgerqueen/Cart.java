@@ -23,7 +23,7 @@ public class Cart {
 
     public void printCart() {
         System.out.println("장바구니에 담겨 있는 물품");
-        System.out.println("-".repeat(30));
+        System.out.println("-".repeat(45));
 
         System.out.println("-".repeat(45));
         System.out.printf("합계 : %d원\n", calculateTotalPrice());
@@ -119,19 +119,20 @@ public class Cart {
     }
 
     private BurgerSet composeSet(Hamburger hamburger) {
-        System.out.println("사이드 메뉴를 선택해주세요");
-        menu.printDrinks(false);
-
-        String sideId = scanner.nextLine();
-        Side side = (Side) productRepository.findById(Integer.parseInt(sideId));
-        chooseOption(side);
-
-        System.out.println("음료를  선택해주세요.");
+        System.out.println("음료 메뉴를 선택해주세요");
         menu.printDrinks(false);
 
         String drinkId = scanner.nextLine();
         Drink drink = (Drink) productRepository.findById(Integer.parseInt(drinkId));
         chooseOption(drink);
+
+
+        System.out.println("사이드 메뉴를 선택해주세요.");
+        menu.printSides(false);
+
+        String sideId = scanner.nextLine();
+        Side side = (Side) productRepository.findById(Integer.parseInt(sideId));
+        chooseOption(side);
 
         String name = hamburger.getName() + "세트";
         int price = hamburger.getBurgerSetPrice();

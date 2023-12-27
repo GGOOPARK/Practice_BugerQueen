@@ -6,7 +6,7 @@ public class Product {
     protected int price;
     private int kcal;
 
-    public Product(int id, String Name, int price, int kcal) {
+    public Product(int id, String name, int price, int kcal) {
         this.id = id;
         this.name = name;
         this.price = price;
