@@ -24,7 +24,7 @@ public class Cart {
     public void printCart() {
         System.out.println("장바구니에 담겨 있는 물품");
         System.out.println("-".repeat(45));
-
+        printCartItemDetails();
         System.out.println("-".repeat(45));
         System.out.printf("합계 : %d원\n", calculateTotalPrice());
 
@@ -38,7 +38,7 @@ public class Cart {
             if (product instanceof BurgerSet) {
                 BurgerSet burgerSet = (BurgerSet) product; // 참조변수 다운캐스팅
                 System.out.printf(
-                        " %s %6d원 (%s(케첩 %d개), %s(빨대 %s))\n",
+                        " %s 가격:%6d원 음료:%s(빨대 %s), 사이드: %s(케첩 %d개))\n",
                         product.getName(),
                         product.getPrice(),
                         burgerSet.getDrink().getName(),
@@ -82,7 +82,7 @@ public class Cart {
         Product product = productRepository.findById(productId);
         chooseOption(product);
 
-        if(product instanceof Hamburger) {
+        if (product instanceof Hamburger) {
             Hamburger hamburger = (Hamburger) product;
             if (hamburger.isBurgerSet()) product = composeSet(hamburger);
         }
