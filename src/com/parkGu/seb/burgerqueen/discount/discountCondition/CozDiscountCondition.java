@@ -1,13 +1,17 @@
 package com.parkGu.seb.burgerqueen.discount.discountCondition;
 
-import com.parkGu.seb.burgerqueen.discount.discountPolicy.FixedRateDiscountPolicy;
+import com.parkGu.seb.burgerqueen.discount.discountPolicy.DiscountPolicy;
 
 import java.util.Scanner;
 
 public class CozDiscountCondition {
-    private FixedRateDiscountPolicy fixedRateDiscountPolicy = new FixedRateDiscountPolicy(10);
+    private DiscountPolicy discountPolicy;
+
+    public CozDiscountCondition(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
     public int applyDiscount(int price) {
-        return fixedRateDiscountPolicy.calculateDiscountPrice(price);
+        return discountPolicy.calculateDiscountedPrice(price);
     }
     public boolean isCoz;
 

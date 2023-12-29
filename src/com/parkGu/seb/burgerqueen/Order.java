@@ -1,27 +1,26 @@
 package com.parkGu.seb.burgerqueen;
 
 import com.parkGu.seb.burgerqueen.discount.discountCondition.CozDiscountCondition;
+import com.parkGu.seb.burgerqueen.discount.discountCondition.DiscountCondition;
 import com.parkGu.seb.burgerqueen.discount.discountCondition.KidDiscountCondition;
+import com.parkGu.seb.burgerqueen.discount.discountPolicy.FixedAmountDiscountPolicy;
+import com.parkGu.seb.burgerqueen.discount.discountPolicy.FixedRateDiscountPolicy;
 
 public class Order {
     private Cart cart;
 
-    public Order(Cart cart) {
+    private Discount discount;
+
+    public Order(Cart cart, DiscountCondition[] discountConditions) {
         this.cart = cart;
+        this.discount = discount;
     }
 
     public void makeOrder() {
-        CozDiscountCondition cozDiscountCondition = new CozDiscountCondition();
-        KidDiscountCondition kidDiscountCondition = new KidDiscountCondition();
-
-        cozDiscountCondition.checkDiscountCondition();
-        kidDiscountCondition.checkDisountCondition();
-
         int totalPrice = cart.calculateTotalPrice();
-        int finalPrice = totalPrice;
+        int finalPrice = discount.discount(totalPrice);
 
-        if (cozDiscountCondition.isCoz()) finalPrice = cozDiscountCondition.applyDiscount(finalPrice);
-        if (kidDiscountCondition.isKid()) finalPrice = cozDiscountCondition.applyDiscount(finalPrice);
+
 
         System.out.println("주문 완료");
         System.out.println("주문 내역");

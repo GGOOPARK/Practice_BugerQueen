@@ -1,12 +1,16 @@
 package com.parkGu.seb.burgerqueen.discount.discountCondition;
 
-import com.parkGu.seb.burgerqueen.discount.discountPolicy.FixedAmountDiscountPolicy;
+import com.parkGu.seb.burgerqueen.discount.discountPolicy.DiscountPolicy;
 
 import java.util.Scanner;
 
 public class KidDiscountCondition {
     private boolean isKid;
-    private FixedAmountDiscountPolicy fixedAmountDiscountPolicy = new FixedAmountDiscountPolicy(500);
+    private DiscountPolicy discountPolicy;
+
+    public KidDiscountCondition(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
 
     public boolean isKid() {
         return isKid;
@@ -26,6 +30,6 @@ public class KidDiscountCondition {
     }
 
     public int applyDiscount(int price) {
-        return fixedAmountDiscountPolicy.calculateDiscountedPrice(price);
+        return discountPolicy.calculateDiscountedPrice(price);
     }
 }
