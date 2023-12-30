@@ -11,7 +11,7 @@ public class Discount {
 
     public void checkAllDiscountConditions() {
         for (DiscountCondition discountCondition : discountConditions) {
-            discountConditions.checkDiscountCondition();
+            discountCondition.checkDiscountCondition();
         }
     }
 
@@ -19,8 +19,8 @@ public class Discount {
         int discountedPrice = price;
 
         for (DiscountCondition discountCondition : discountConditions) {
-            discountConditions.checkDiscountCondition();
-            if (discountCondition.isSatisfied()) discountedPrice = discountConditions.applyDiscount(discountedPrice);
+            discountCondition.checkDiscountCondition();
+            if (discountCondition.isSatisfied()) discountedPrice = discountCondition.applyDiscount(discountedPrice);
         }
 
         return discountedPrice;

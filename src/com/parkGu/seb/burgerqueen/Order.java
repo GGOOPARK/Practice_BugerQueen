@@ -1,5 +1,6 @@
 package com.parkGu.seb.burgerqueen;
 
+import com.parkGu.seb.burgerqueen.discount.Discount;
 import com.parkGu.seb.burgerqueen.discount.discountCondition.CozDiscountCondition;
 import com.parkGu.seb.burgerqueen.discount.discountCondition.DiscountCondition;
 import com.parkGu.seb.burgerqueen.discount.discountCondition.KidDiscountCondition;
