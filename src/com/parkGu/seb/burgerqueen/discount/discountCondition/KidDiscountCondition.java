@@ -4,23 +4,23 @@ import com.parkGu.seb.burgerqueen.discount.discountPolicy.DiscountPolicy;
 
 import java.util.Scanner;
 
-public class KidDiscountCondition {
-    private boolean isKid;
+public class KidDiscountCondition implements DiscountCondition {
+    private boolean isSatisfied;
     private DiscountPolicy discountPolicy;
 
     public KidDiscountCondition(DiscountPolicy discountPolicy) {
         this.discountPolicy = discountPolicy;
     }
 
-    public boolean isKid() {
-        return isKid;
+    public boolean isSatisfied() {
+        return isSatisfied;
     }
 
     private void setSatisfied(boolean satisfied) {
-        isKid = satisfied;
+        isSatisfied = satisfied;
     }
 
-    public void checkDisountCondition() {
+    public void checkDiscountCondition() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("나이를 입력해주세요.");

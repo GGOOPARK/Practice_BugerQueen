@@ -9,11 +9,20 @@ public class Discount {
         this.discountConditions = discountConditions;
     }
 
+    public void checkAllDiscountConditions() {
+        for (DiscountCondition discountCondition : discountConditions) {
+            discountConditions.checkDiscountCondition();
+        }
+    }
+
     public int discount(int price) {
         int discountedPrice = price;
+
         for (DiscountCondition discountCondition : discountConditions) {
             discountConditions.checkDiscountCondition();
             if (discountCondition.isSatisfied()) discountedPrice = discountConditions.applyDiscount(discountedPrice);
         }
+
+        return discountedPrice;
     }
 }

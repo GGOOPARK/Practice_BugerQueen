@@ -1,5 +1,6 @@
 package com.parkGu.seb.burgerqueen;
 
+import com.parkGu.seb.burgerqueen.discount.Discount;
 import com.parkGu.seb.burgerqueen.discount.discountCondition.CozDiscountCondition;
 import com.parkGu.seb.burgerqueen.discount.discountCondition.DiscountCondition;
 import com.parkGu.seb.burgerqueen.discount.discountCondition.KidDiscountCondition;
@@ -24,7 +25,6 @@ public class OrderApp {
                         new KidDiscountCondition(new FixedAmountDiscountPolicy(500))
                 })
         );
-
         System.out.println("BurgerQueen Order Service");
 
         while (true) {

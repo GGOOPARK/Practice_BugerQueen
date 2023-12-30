@@ -8,10 +8,11 @@ import com.parkGu.seb.burgerqueen.discount.discountPolicy.FixedRateDiscountPolic
 
 public class Order {
     private Cart cart;
+    private DiscountCondition[] discountConditions;
 
     private Discount discount;
 
-    public Order(Cart cart, DiscountCondition[] discountConditions) {
+    public Order(Cart cart, Discount discount) {
         this.cart = cart;
         this.discount = discount;
     }
@@ -19,8 +20,6 @@ public class Order {
     public void makeOrder() {
         int totalPrice = cart.calculateTotalPrice();
         int finalPrice = discount.discount(totalPrice);
-
-
 
         System.out.println("주문 완료");
         System.out.println("주문 내역");
